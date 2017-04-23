@@ -21,9 +21,12 @@ with open("YT.txt") as f:
 	content = f.readlines()
 
 while Time != Alarm:
-	print "The time is " + Time
+	os.system("clear")
+	time.sleep(0.19)
+	print "Alarm Time is " + Alarm
+	print "The time is   " + Time
 	Time = time.strftime("%H:%M")
-	time.sleep(1)
+	time.sleep(0.8)
 
 if Time == Alarm:
 
