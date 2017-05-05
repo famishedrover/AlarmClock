@@ -3,8 +3,11 @@ import webbrowser
 import random
 import os
 from threading import Thread
-
 path = os.path.abspath('YT.txt')
+
+
+def setPath(mypath=path) :
+	path = mypath
 
 def getInput() :
 	print "What time do you want to wake up?"
@@ -41,7 +44,6 @@ def runInBackground(Time,Alarm):
 
 def runInteractive():
 	check = checkYTfile()
-	
 	#The User can set the time they want to wake up. The String the user puts in must be the same as the example to work.
 	Alarm,Time = getInput()
 	flag = False

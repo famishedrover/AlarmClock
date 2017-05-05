@@ -1,6 +1,7 @@
 LICENSE.txt
 MANIFEST.in
 README.rst
+setup.py
 alarm/__init__.py
 alarm/begin.py
 pyAlarm.egg-info/PKG-INFO
