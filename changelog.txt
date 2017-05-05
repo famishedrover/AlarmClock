@@ -1,0 +1,6 @@
+## simplestatistics chnagelog
+
+## 1.0.0
+2017-06-05
+### Added
+-‘pyalarm.begin’
