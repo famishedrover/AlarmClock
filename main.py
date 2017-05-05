@@ -2,6 +2,23 @@ import time
 import webbrowser
 import random
 import os
+from threading import Thread
+
+def runInBackground(Time,Alarm):
+	with open("YT.txt") as f:
+		content = f.readlines()
+	while Time != Alarm:
+		# print 'H'
+		Time = time.strftime("%H:%M")
+		time.sleep(0.95)
+	# print 'Working'
+	if Time == Alarm:
+		# print "Time to Wake up!"
+		if check :
+			random_video = random.choice(content)
+			webbrowser.open(random_video)
+	print 'Wake UP! its ',Alarm
+
 
 #Check if the user has the YT.txt file in the same area as alarm.py
 check = True 
@@ -17,20 +34,23 @@ Alarm = raw_input("> ")
 
 Time = time.strftime("%H:%M")
 
-with open("YT.txt") as f:
-	content = f.readlines()
-
-while Time != Alarm:
-	os.system("clear")
-	time.sleep(0.19)
-	print "Alarm Time is " + Alarm
-	print "The time is   " + Time
-	Time = time.strftime("%H:%M")
-	time.sleep(0.8)
-
-if Time == Alarm:
-
-	print "Time to Wake up!"
-	if check :
-		random_video = random.choice(content)
-		webbrowser.open(random_video)
+flag = False
+ans = raw_input('Want to Run in background?(y/n)')
+thread = Thread(target=runInBackground,name='AlarmBkg',args=(Time,Alarm,))
+if ans == 'y' :
+	thread.start()
+else :
+	with open("YT.txt") as f:
+		content = f.readlines()
+	while Time != Alarm:
+		os.system("clear")
+		time.sleep(0.19)
+		print "Alarm Time is " + Alarm
+		print "The time is   " + Time
+		Time = time.strftime("%H:%M")
+		time.sleep(0.8)
+	if Time == Alarm:
+		print "Time to Wake up!"
+		if check :
+			random_video = random.choice(content)
+			webbrowser.open(random_video)
