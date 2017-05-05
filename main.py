@@ -5,7 +5,7 @@ import os
 from threading import Thread
 
 def runInBackground(Time,Alarm):
-	with open("YT.txt") as f:
+	with open("./data/YT.txt") as f:
 		content = f.readlines()
 	while Time != Alarm:
 		# print 'H'
@@ -40,7 +40,7 @@ thread = Thread(target=runInBackground,name='AlarmBkg',args=(Time,Alarm,))
 if ans == 'y' :
 	thread.start()
 else :
-	with open("YT.txt") as f:
+	with open("./data/YT.txt") as f:
 		content = f.readlines()
 	while Time != Alarm:
 		os.system("clear")
