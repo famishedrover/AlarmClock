@@ -1,1 +1,1 @@
-import begin
+from . import begin
